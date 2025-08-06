@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lemur Productions | Video Production Prague</title>
-    <meta name="description" content="Lemur Productions - Professional video production services in Prague. 20 years of cinematic excellence.">
+    <title>Lemmur Productions | Video Production Prague</title>
+    <meta name="description" content="Lemmur Productions - Professional video production services in Prague. 20 years of cinematic excellence.">
     
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -180,10 +180,138 @@
             justify-content: center;
             text-align: center;
             background: 
-                linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8)),
+                linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)),
                 url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1920&h=1080&fit=crop&crop=center&q=80') center/cover,
                 radial-gradient(ellipse at center, rgba(255, 107, 53, 0.05) 0%, transparent 70%);
             position: relative;
+            overflow: hidden;
+        }
+
+        /* Cyber Grid Background */
+        .cyber-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 107, 53, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 107, 53, 0.1) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
+        }
+
+        /* Floating Cyber Orbs */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .cyber-orb {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        }
+
+        .cyber-orb-1 {
+            top: 20%;
+            left: 15%;
+            animation: floatOrb1 8s ease-in-out infinite;
+        }
+
+        .cyber-orb-2 {
+            top: 60%;
+            right: 20%;
+            animation: floatOrb2 10s ease-in-out infinite;
+        }
+
+        .cyber-orb-3 {
+            bottom: 30%;
+            left: 30%;
+            animation: floatOrb3 12s ease-in-out infinite;
+        }
+
+        @keyframes floatOrb1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.2); }
+            66% { transform: translate(-20px, 30px) scale(0.8); }
+        }
+
+        @keyframes floatOrb2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-40px, -30px) scale(1.3); }
+        }
+
+        @keyframes floatOrb3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -40px) scale(0.9); }
+            75% { transform: translate(-30px, 20px) scale(1.1); }
+        }
+
+        /* Cyber Title */
+        .cyber-title {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch1 3s infinite;
+            color: #ff3333;
+            z-index: -1;
+        }
+
+        .glitch-text::after {
+            animation: glitch2 3s infinite;
+            color: #3333ff;
+            z-index: -2;
+        }
+
+        @keyframes glitch1 {
+            0%, 90%, 100% { transform: translate(0); }
+            95% { transform: translate(-2px, 1px); }
+        }
+
+        @keyframes glitch2 {
+            0%, 90%, 100% { transform: translate(0); }
+            95% { transform: translate(2px, -1px); }
+        }
+
+        .cyber-underline {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 1rem auto;
+            width: 0;
+            animation: underlineExpand 2s ease-out 1s both;
+        }
+
+        @keyframes underlineExpand {
+            to { width: 60%; }
         }
 
         .hero-content h1 {
@@ -197,6 +325,7 @@
             text-transform: uppercase;
         }
 
+        /* Cyber Tagline */
         .hero-content .tagline {
             font-family: 'Exo 2', sans-serif;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
@@ -208,15 +337,92 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
         }
 
+        .cyber-bracket {
+            color: var(--accent);
+            font-weight: 700;
+            animation: bracketPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes bracketPulse {
+            from { opacity: 0.7; }
+            to { opacity: 1; }
+        }
+
+        /* Location Container */
+        .location-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .location-grid {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: gridDotPulse 1.5s ease-in-out infinite;
+        }
+
+        .grid-dot:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .grid-dot:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes gridDotPulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
         .hero-content .location {
             font-family: 'Rajdhani', sans-serif;
-            color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+            margin: 0;
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: statusBlink 1s ease-in-out infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .status-text {
+            font-family: 'Rajdhani', sans-serif;
+            color: #00ff00;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes statusBlink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
         }
 
         /* Sections */
@@ -572,12 +778,328 @@
         }
 
         /* Footer */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
+        .main-footer {
+            position: relative;
+            background: 
+                linear-gradient(45deg, rgba(10, 10, 10, 0.95), rgba(17, 17, 17, 0.95)),
+                url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1920&h=600&fit=crop&crop=center&q=80') center/cover;
+            border-top: 2px solid var(--border);
+            overflow: hidden;
+        }
+
+        .footer-background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 50px,
+                rgba(255, 107, 53, 0.02) 50px,
+                rgba(255, 107, 53, 0.02) 100px
+            );
+            pointer-events: none;
+        }
+
+        .footer-content {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem;
+            z-index: 2;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Footer Brand */
+        .footer-brand .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand .logo-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-brand .logo-subtitle {
+            font-family: 'Exo 2', sans-serif;
             font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-awards {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            background: rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .award-icon {
+            font-size: 1rem;
+        }
+
+        /* Footer Links */
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .footer-section ul li a::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--text-primary);
+            padding-left: 1.2rem;
+        }
+
+        .footer-section ul li a:hover::before {
+            opacity: 1;
+        }
+
+        /* Footer Contact */
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .contact-detail a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail a:hover {
+            color: var(--accent);
+        }
+
+        .detail-icon {
+            font-size: 1rem;
+            width: 1.2rem;
+            text-align: center;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: rgba(17, 17, 17, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: var(--accent);
+            color: var(--text-primary);
+            transform: translateX(5px);
+        }
+
+        .social-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Section Dividers */
+        .section-divider,
+        .footer-divider {
+            display: flex;
+            align-items: center;
+            margin: 4rem 0;
+            padding: 2rem 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+        }
+
+        .divider-pattern {
+            display: flex;
+            gap: 1rem;
+            padding: 0 2rem;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .divider-pattern span {
+            animation: pulse 2s infinite;
+        }
+
+        .divider-pattern span:nth-child(even) {
+            animation-delay: 0.5s;
+        }
+
+        .footer-divider {
+            margin: 3rem 0;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-copyright p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-tagline {
+            font-family: 'Exo 2', sans-serif;
+            font-style: italic;
+            margin-top: 0.25rem !important;
+        }
+
+        /* Tech Indicators */
+        .footer-tech {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tech-label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tech-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--accent);
+            animation: glow 2s infinite;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 0 5px var(--accent); 
+            }
+            50% { 
+                box-shadow: 0 0 15px var(--accent), 0 0 25px var(--accent); 
+            }
         }
 
         /* Mobile Responsiveness */
@@ -640,6 +1162,53 @@
                 margin: 0 auto;
                 max-width: 400px;
             }
+
+            /* Footer Mobile */
+            .footer-content {
+                padding: 2rem 1rem 1rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .footer-section h4 {
+                font-size: 1rem;
+            }
+
+            .footer-brand .logo-text {
+                font-size: 1.5rem;
+            }
+
+            .footer-awards {
+                justify-content: center;
+            }
+
+            .footer-section ul li a {
+                padding-left: 0;
+            }
+
+            .footer-section ul li a:hover {
+                padding-left: 0.2rem;
+            }
+
+            .social-links {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-tech {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         /* Smooth animations */
@@ -662,7 +1231,7 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">Lemur Productions</a>
+            <a href="#" class="logo">Lemmur Productions</a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -687,21 +1256,59 @@
 
     <main>
         <section class="hero">
+            <div class="cyber-grid"></div>
+            <div class="floating-elements">
+                <div class="cyber-orb cyber-orb-1"></div>
+                <div class="cyber-orb cyber-orb-2"></div>
+                <div class="cyber-orb cyber-orb-3"></div>
+            </div>
             <div class="hero-content fade-in">
-                <h1>Lemur Productions</h1>
-                <p class="tagline">Cinematic Excellence</p>
-                <p class="location">Prague • 20 Years of Vision</p>
+                <div class="cyber-title">
+                    <h1>
+                        <span class="glitch-text" data-text="Lemmur Productions">Lemmur Productions</span>
+                        <div class="cyber-underline"></div>
+                    </h1>
+                </div>
+                <p class="tagline">
+                    <span class="cyber-bracket">[</span>
+                    Cyber Primate Cinematics
+                    <span class="cyber-bracket">]</span>
+                </p>
+                <div class="location-container">
+                    <div class="location-grid">
+                        <span class="grid-dot"></span>
+                        <span class="grid-dot"></span>
+                        <span class="grid-dot"></span>
+                    </div>
+                    <p class="location">Prague • Neural Network Active • 20 Years Online</p>
+                    <div class="status-indicator">
+                        <span class="status-dot"></span>
+                        <span class="status-text">System Operational</span>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-pattern">
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+            </div>
+            <div class="divider-line"></div>
+        </div>
 
         <section id="about" class="about">
             <div class="section-content">
                 <h2 class="section-title">About</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>For two decades, we've been crafting visual stories that resonate. Based in the heart of Prague, our passion lies in transforming concepts into compelling cinematic experiences.</p>
+                        <p>For two decades, our talented troupe of Lemmur monkeys has been crafting visual stories that resonate across species and cultures. Based in the heart of Prague, our passionate primate production team brings their natural creativity and agility to transforming concepts into compelling cinematic experiences.</p>
                         <br>
-                        <p>Every frame tells a story. Every project is a journey. We don't just produce videos – we create memories that last.</p>
+                        <p>Every frame tells a story. Every project is a jungle expedition. We don't just produce videos – our Lemmur crew creates memories that swing from heart to heart, lasting generations.</p>
                     </div>
                     <div class="about-stats">
                         <div class="stat">
@@ -721,25 +1328,57 @@
             </div>
         </section>
 
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-pattern">
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+            </div>
+            <div class="divider-line"></div>
+        </div>
+
         <section id="services" class="services">
             <div class="section-content">
                 <h2 class="section-title">Services</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <h3>Corporate Films</h3>
-                        <p>Professional corporate videos that communicate your brand's essence with clarity and impact.</p>
+                        <p>Our talented Lemmur monkeys craft professional corporate videos that swing your brand message straight to the hearts of your audience. With their keen eye for detail and natural agility, they create compelling narratives that communicate your company's essence with unmatched creativity.</p>
                     </div>
                     <div class="service-card">
                         <h3>Event Documentation</h3>
-                        <p>Capturing the energy and emotion of your special moments with cinematic precision.</p>
+                        <p>From the treetops to the venue floor, our Lemmur crew captures every magical moment of your events. Their playful nature and quick reflexes ensure no precious memory escapes their lens, delivering cinematic documentation that preserves the energy and emotion of your special occasions.</p>
                     </div>
                     <div class="service-card">
                         <h3>Commercial Production</h3>
-                        <p>Creative advertisements that connect with audiences and drive results through visual storytelling.</p>
+                        <p>When it comes to advertising that sticks, our Lemmur monkeys know how to create buzz! Their innate understanding of movement and rhythm translates into dynamic commercials that capture attention and drive results through innovative visual storytelling.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Drone & Aerial Photography</h3>
+                        <p>Who better to understand aerial perspectives than creatures who naturally navigate the canopy? Our Lemmur pilots master drone technology to capture breathtaking aerial shots and photography that showcase your projects from stunning new heights and angles.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Short Films & Documentaries</h3>
+                        <p>Our Lemmur storytellers bring decades of jungle wisdom to craft compelling short films and documentaries. Their natural curiosity and social intelligence help them uncover authentic human stories and present them with both artistic flair and documentary integrity.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-pattern">
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+            </div>
+            <div class="divider-line"></div>
+        </div>
 
         <section id="portfolio" class="portfolio">
             <div class="section-content">
@@ -751,7 +1390,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Corporate Vision</h3>
-                            <p>Brand story for innovative tech company</p>
+                            <p>Our Lemmur team swings into action to tell the brand story of an innovative tech company, combining their natural agility with cutting-edge cinematography</p>
                         </div>
                     </div>
                     <div class="video-card">
@@ -760,7 +1399,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Festival Moments</h3>
-                            <p>Cultural event documentation</p>
+                            <p>Watch our playful Lemmur cinematographers capture the vibrant energy of cultural festivals, their social nature perfectly suited for documenting human celebration and connection</p>
                         </div>
                     </div>
                     <div class="video-card">
@@ -769,7 +1408,7 @@
                         </div>
                         <div class="video-info">
                             <h3>Product Launch</h3>
-                            <p>Commercial for luxury brand</p>
+                            <p>Our sophisticated Lemmur directors craft an elegant commercial for a luxury brand, their keen aesthetic sense and attention to detail creating premium visual storytelling</p>
                         </div>
                     </div>
                     <div class="video-card">
@@ -778,12 +1417,24 @@
                         </div>
                         <div class="video-info">
                             <h3>Artistic Expression</h3>
-                            <p>Experimental narrative short</p>
+                            <p>Experience the creative genius of our artistic Lemmur collective as they explore experimental narrative techniques, bringing jungle wisdom to avant-garde filmmaking</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="section-divider">
+            <div class="divider-line"></div>
+            <div class="divider-pattern">
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+                <span>◇</span>
+                <span>◆</span>
+            </div>
+            <div class="divider-line"></div>
+        </div>
 
         <section id="contact" class="contact">
             <div class="section-content">
@@ -808,7 +1459,7 @@
                                 <div class="contact-icon">✉️</div>
                                 <div class="contact-text">
                                     <h4>Email</h4>
-                                    <p><a href="mailto:hello@lemurproductions.cz">hello@lemurproductions.cz</a></p>
+                                    <p><a href="mailto:hello@lemmurproductions.cz">hello@lemmurproductions.cz</a></p>
                                 </div>
                             </div>
                             
@@ -846,6 +1497,8 @@
                                     <option value="corporate">Corporate Films</option>
                                     <option value="event">Event Documentation</option>
                                     <option value="commercial">Commercial Production</option>
+                                    <option value="drone">Drone & Aerial Photography</option>
+                                    <option value="films">Short Films & Documentaries</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
@@ -866,8 +1519,119 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Lemur Productions. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-text">Lemmur Productions</div>
+                        <div class="logo-subtitle">20 Years of Cinematic Vision</div>
+                    </div>
+                    <p class="footer-description">
+                        Our talented Lemmur monkey production team transforms concepts into compelling visual narratives. 
+                        Based in Prague, our primate professionals craft stories that swing across cultures and industries with unmatched creativity.
+                    </p>
+                    <div class="footer-awards">
+                        <div class="award-item">
+                            <span class="award-icon">🏆</span>
+                            <span>Prague Film Awards</span>
+                        </div>
+                        <div class="award-item">
+                            <span class="award-icon">🎬</span>
+                            <span>500+ Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section footer-services">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Corporate Films</a></li>
+                        <li><a href="#services">Event Documentation</a></li>
+                        <li><a href="#services">Commercial Production</a></li>
+                        <li><a href="#services">Drone & Aerial Photography</a></li>
+                        <li><a href="#services">Short Films & Documentaries</a></li>
+                        <li><a href="#portfolio">View Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section footer-company">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" onclick="return false;">Careers</a></li>
+                        <li><a href="#" onclick="return false;">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section footer-contact">
+                    <h4>Connect</h4>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="detail-icon">📍</span>
+                            <span>Prague, Czech Republic</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="detail-icon">✉️</span>
+                            <a href="mailto:hello@lemmurproductions.cz">hello@lemmurproductions.cz</a>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="detail-icon">📞</span>
+                            <a href="tel:+420123456789">+420 123 456 789</a>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" onclick="return false;">
+                            <span class="social-icon">📺</span>
+                            <span>Vimeo</span>
+                        </a>
+                        <a href="#" class="social-link" onclick="return false;">
+                            <span class="social-icon">📷</span>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" class="social-link" onclick="return false;">
+                            <span class="social-icon">💼</span>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-divider">
+                <div class="divider-line"></div>
+                <div class="divider-pattern">
+                    <span>◆</span>
+                    <span>◇</span>
+                    <span>◆</span>
+                    <span>◇</span>
+                    <span>◆</span>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Lemmur Productions. All rights reserved.</p>
+                    <p class="footer-tagline">Crafting Visual Stories Since 2005</p>
+                </div>
+                
+                <div class="footer-tech">
+                    <span class="tech-label">Powered by Vision</span>
+                    <div class="tech-indicators">
+                        <div class="indicator active"></div>
+                        <div class="indicator active"></div>
+                        <div class="indicator active"></div>
+                        <div class="indicator"></div>
+                        <div class="indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-background-pattern"></div>
     </footer>
 
     <script>
